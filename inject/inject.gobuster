@@ -1,0 +1,25 @@
+gobuster dir -u http://$ip:8080 -w /usr/share/dirb/wordlists/common.txt -t 50
+===============================================================
+Gobuster v3.5
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://10.10.11.204:8080
+[+] Method:                  GET
+[+] Threads:                 50
+[+] Wordlist:                /usr/share/dirb/wordlists/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.5
+[+] Timeout:                 10s
+===============================================================
+2023/03/25 14:39:55 Starting gobuster in directory enumeration mode
+===============================================================
+/blogs                (Status: 200) [Size: 5371]
+/error                (Status: 500) [Size: 106]
+/environment          (Status: 500) [Size: 712]
+/register             (Status: 200) [Size: 5654]
+/upload               (Status: 200) [Size: 1857]
+Progress: 4614 / 4615 (99.98%)
+===============================================================
+2023/03/25 14:40:16 Finished
+===============================================================
+                                                                
