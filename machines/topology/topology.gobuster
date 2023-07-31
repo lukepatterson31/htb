@@ -1,0 +1,60 @@
+===============================================================
+Gobuster v3.5
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://10.10.11.217
+[+] Method:                  GET
+[+] Threads:                 100
+[+] Wordlist:                /usr/share/wordlists/dirb/big.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.5
+[+] Timeout:                 10s
+===============================================================
+2023/07/31 11:21:12 Starting gobuster in directory enumeration mode
+===============================================================
+/.htpasswd            (Status: 403) [Size: 277]
+/.htaccess            (Status: 403) [Size: 277]
+/css                  (Status: 301) [Size: 310] [--> http://10.10.11.217/css/]
+/images               (Status: 301) [Size: 313] [--> http://10.10.11.217/images/]
+/javascript           (Status: 301) [Size: 317] [--> http://10.10.11.217/javascript/]
+/portraits            (Status: 301) [Size: 316] [--> http://10.10.11.217/portraits/]
+/server-status        (Status: 403) [Size: 277]
+/~bin                 (Status: 403) [Size: 277]
+/~sys                 (Status: 403) [Size: 277]
+/~mail                (Status: 403) [Size: 277]
+/~nobody              (Status: 403) [Size: 277]
+/~lp                  (Status: 403) [Size: 277]
+
+===============================================================
+2023/07/31 11:33:22 Finished
+===============================================================
+===============================================================
+Gobuster v3.5
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://latex.topology.htb
+[+] Method:                  GET
+[+] Threads:                 100
+[+] Wordlist:                /usr/share/wordlists/dirb/big.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.5
+[+] Timeout:                 10s
+===============================================================
+2023/07/31 16:22:27 Starting gobuster in directory enumeration mode
+===============================================================
+/.htpasswd            (Status: 403) [Size: 283]
+/.htaccess            (Status: 403) [Size: 283]
+/demo                 (Status: 301) [Size: 323] [--> http://latex.topology.htb/demo/]
+/javascript           (Status: 301) [Size: 329] [--> http://latex.topology.htb/javascript/]
+/server-status        (Status: 403) [Size: 283]
+/tempfiles            (Status: 301) [Size: 328] [--> http://latex.topology.htb/tempfiles/]
+/~bin                 (Status: 403) [Size: 283]
+/~mail                (Status: 403) [Size: 283]
+/~nobody              (Status: 403) [Size: 283]
+/~lp                  (Status: 403) [Size: 283]
+/~sys                 (Status: 403) [Size: 283]
+Progress: 20469 / 20470 (100.00%)
+===============================================================
+2023/07/31 16:37:23 Finished
+===============================================================
+
