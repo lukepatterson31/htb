@@ -18,6 +18,8 @@ Connect to gRPC port with grpcui browser, or use Postman to send requests
 
 admin:admin is used as credentials
 
+### Exploitation
+
 id parameter is injectable, sqlmap didn't work for me so looked [at this walkthrough](https://medium.com/@fares7elsadek/hackthebox-writeup-pc-1c0178023411)
 
 Find first username, admin
@@ -49,6 +51,8 @@ linpeas.sh shows 127.0.0.1:8000 as listening
 Use an ssh tunnel to access pyload running on the target
 
 `ssh -L 8000:127.0.0.1:8000 sau@10.10.11.214`
+
+### Privilege Escalation
 
 Google shows pyload suffers from an [RCE vulnerability](https://www.exploit-db.com/exploits/51532) and ps aux shows it's running as root.
 
