@@ -11,6 +11,10 @@ lklein - Head of group
 
 ### Exploitation
 
+Tried hydra with the names of the portraits but the connection was refused
+
+Tried a few LaTeX queries but no luck.
+
 Needed help here, [found this walkthrough](https://rouvin.gitbook.io/ibreakstuff/writeups/hackthebox/easy/topology)
 
 LaTeX equation generator -> read single line of files
