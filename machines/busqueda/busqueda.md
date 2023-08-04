@@ -7,7 +7,7 @@
 
 ### Exploitation
 
-Searchor v 2.4 has an RCE vulnerability in the query parameter
+Searchor v 2.4 has an [RCE vulnerability](https://github.com/jonnyzar/POC-Searchor-2.4.2) in the query parameter 
 
 Start a netcat listener and get a reverse shell with this
 
