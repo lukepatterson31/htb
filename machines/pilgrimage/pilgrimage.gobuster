@@ -1,0 +1,23 @@
+===============================================================
+Gobuster v3.5
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://pilgrimage.htb
+[+] Method:                  GET
+[+] Threads:                 100
+[+] Wordlist:                /usr/share/dirb/wordlists/big.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.5
+[+] Timeout:                 10s
+===============================================================
+2023/08/04 14:17:24 Starting gobuster in directory enumeration mode
+===============================================================
+/.htpasswd            (Status: 403) [Size: 153]
+/.htaccess            (Status: 403) [Size: 153]
+/assets               (Status: 301) [Size: 169] [--> http://pilgrimage.htb/assets/]
+/tmp                  (Status: 301) [Size: 169] [--> http://pilgrimage.htb/tmp/]
+/vendor               (Status: 301) [Size: 169] [--> http://pilgrimage.htb/vendor/]
+
+===============================================================
+2023/08/04 14:17:28 Finished
+===============================================================
