@@ -1,0 +1,175 @@
+
+OperationalError
+
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (2013, 'Lost connection to MySQL server during query')
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.hashed_password AS users_hashed_password 
+FROM users 
+WHERE users.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': '10', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+Traceback (most recent call last)
+
+    File "/app/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+
+    self.dialect.do_execute(
+
+    File "/app/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+
+    cursor.execute(statement, parameters)
+
+    File "/app/venv/lib/python3.10/site-packages/pymysql/cursors.py", line 148, in execute
+
+    result = self._query(query)
+
+    File "/app/venv/lib/python3.10/site-packages/pymysql/cursors.py", line 310, in _query
+
+    conn.query(q)
+
+    File "/app/venv/lib/python3.10/site-packages/pymysql/connections.py", line 548, in query
+
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+
+    File "/app/venv/lib/python3.10/site-packages/pymysql/connections.py", line 775, in _read_query_result
+
+    result.read()
+
+    File "/app/venv/lib/python3.10/site-packages/pymysql/connections.py", line 1156, in read
+
+    first_packet = self.connection._read_packet()
+
+    File "/app/venv/lib/python3.10/site-packages/pymysql/connections.py", line 701, in _read_packet
+
+    raise err.OperationalError(
+
+    The above exception was the direct cause of the following exception:
+    File "/app/venv/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
+
+    response = self.handle_exception(e)
+
+    File "/app/venv/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
+
+    response = self.full_dispatch_request()
+
+    File "/app/venv/lib/python3.10/site-packages/flask/app.py", line 1822, in full_dispatch_request
+
+    rv = self.handle_user_exception(e)
+
+    File "/app/venv/lib/python3.10/site-packages/flask/app.py", line 1820, in full_dispatch_request
+
+    rv = self.dispatch_request()
+
+    File "/app/venv/lib/python3.10/site-packages/flask/app.py", line 1796, in dispatch_request
+
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+
+    File "/app/app/superpass/views/account_views.py", line 80, in logout
+
+    logout_user()
+
+    File "/app/venv/lib/python3.10/site-packages/flask_login/utils.py", line 213, in logout_user
+
+    user = _get_user()
+
+    File "/app/venv/lib/python3.10/site-packages/flask_login/utils.py", line 372, in _get_user
+
+    current_app.login_manager._load_user()
+
+    File "/app/venv/lib/python3.10/site-packages/flask_login/login_manager.py", line 364, in _load_user
+
+    user = self._user_callback(user_id)
+
+    File "/app/app/superpass/app.py", line 39, in load_user
+
+    return get_user_by_id(user_id)
+
+    File "/app/app/superpass/services/user_service.py", line 43, in get_user_by_id
+
+    tmp = session.query(User).filter(User.id == uid).first()
+
+    File "/app/venv/lib/python3.10/site-packages/sqlalchemy/orm/query.py", line 2824, in first
+
+    return self.limit(1)._iter().first()
+
+    File "/app/venv/lib/python3.10/site-packages/sqlalchemy/orm/query.py", line 2916, in _iter
+
+    result = self.session.execute(
+
+    File "/app/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1714, in execute
+
+    result = conn._execute_20(statement, params or {}, execution_options)
+
+    File "/app/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+
+    return meth(self, args_10style, kwargs_10style, execution_options)
+
+    File "/app/venv/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 334, in _execute_on_connection
+
+    return connection._execute_clauseelement(
+
+    File "/app/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1572, in _execute_clauseelement
+
+    ret = self._execute_context(
+
+    File "/app/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1943, in _execute_context
+
+    self._handle_dbapi_exception(
+
+    File "/app/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2124, in _handle_dbapi_exception
+
+    util.raise_(
+
+    File "/app/venv/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+
+    raise exception
+
+    File "/app/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+
+    self.dialect.do_execute(
+
+    File "/app/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+
+    cursor.execute(statement, parameters)
+
+    File "/app/venv/lib/python3.10/site-packages/pymysql/cursors.py", line 148, in execute
+
+    result = self._query(query)
+
+    File "/app/venv/lib/python3.10/site-packages/pymysql/cursors.py", line 310, in _query
+
+    conn.query(q)
+
+    File "/app/venv/lib/python3.10/site-packages/pymysql/connections.py", line 548, in query
+
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+
+    File "/app/venv/lib/python3.10/site-packages/pymysql/connections.py", line 775, in _read_query_result
+
+    result.read()
+
+    File "/app/venv/lib/python3.10/site-packages/pymysql/connections.py", line 1156, in read
+
+    first_packet = self.connection._read_packet()
+
+    File "/app/venv/lib/python3.10/site-packages/pymysql/connections.py", line 701, in _read_packet
+
+    raise err.OperationalError(
+
+    sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (2013, 'Lost connection to MySQL server during query')
+    [SQL: SELECT users.id AS users_id, users.username AS users_username, users.hashed_password AS users_hashed_password 
+    FROM users 
+    WHERE users.id = %(id_1)s 
+     LIMIT %(param_1)s]
+    [parameters: {'id_1': '10', 'param_1': 1}]
+    (Background on this error at: https://sqlalche.me/e/14/e3q8)
+
+The debugger caught an exception in your WSGI application. You can now look at the traceback which led to the error.
+
+To switch between the interactive traceback and the plaintext one, you can click on the "Traceback" headline. From the text traceback you can also create a paste of it. For code execution mouse-over the frame you want to debug and click on the console icon on the right side.
+
+You can execute arbitrary Python code in the stack frames and there are some extra helpers available for introspection:
+
+    dump() shows all variables in the frame
+    dump(obj) dumps all that's known about the object
+
+Brought to you by DON'T PANIC, your friendly Werkzeug powered traceback interpreter.

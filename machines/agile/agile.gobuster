@@ -1,0 +1,44 @@
+===============================================================
+Gobuster v3.5
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://superpass.htb
+[+] Method:                  GET
+[+] Threads:                 100
+[+] Wordlist:                /usr/share/dirb/wordlists/big.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.5
+[+] Timeout:                 10s
+===============================================================
+2023/08/05 08:05:35 Starting gobuster in directory enumeration mode
+===============================================================
+/download             (Status: 302) [Size: 249] [--> /account/login?next=%2Fdownload]
+/static               (Status: 301) [Size: 178] [--> http://superpass.htb/static/]
+/vault                (Status: 302) [Size: 243] [--> /account/login?next=%2Fvault]
+Progress: 20453 / 20470 (99.92%)
+===============================================================
+2023/08/05 08:06:09 Finished
+===============================================================
+
+
+===============================================================
+Gobuster v3.5
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://superpass.htb/account
+[+] Method:                  GET
+[+] Threads:                 100
+[+] Wordlist:                /usr/share/dirb/wordlists/big.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.5
+[+] Timeout:                 10s
+===============================================================
+2023/08/05 08:25:44 Starting gobuster in directory enumeration mode
+===============================================================
+/login                (Status: 200) [Size: 3082]
+/logout               (Status: 302) [Size: 189] [--> /]
+/register             (Status: 200) [Size: 3058]
+Progress: 20469 / 20470 (100.00%)
+===============================================================
+2023/08/05 08:26:23 Finished
+===============================================================

@@ -1,0 +1,8 @@
+LANG=C.UTF-8.
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin.
+HOME=/var/www.LOGNAME=www-data.
+USER=www-data.
+INVOCATION_ID=74df27ea238d4aeda94f093e87b9780f.
+JOURNAL_STREAM=8:32552.
+SYSTEMD_EXEC_PID=1072.
+CONFIG_PATH=/app/config_prod.json.
