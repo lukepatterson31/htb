@@ -1,0 +1,59 @@
+# Nmap 7.94 scan initiated Sun Aug 20 10:00:38 2023 as: nmap -p 21,80,135,139,445,5985,47001 -sCV -oN netmon-svc.nmap 10.10.10.152
+Nmap scan report for netmon.htb (10.10.10.152)
+Host is up (0.038s latency).
+Scanned at 2023-08-20 10:00:38 IST for 20s
+
+PORT      STATE SERVICE      VERSION
+21/tcp    open  ftp          Microsoft ftpd
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| 02-03-19  12:18AM                 1024 .rnd
+| 02-25-19  10:15PM       <DIR>          inetpub
+| 07-16-16  09:18AM       <DIR>          PerfLogs
+| 02-25-19  10:56PM       <DIR>          Program Files
+| 02-03-19  12:28AM       <DIR>          Program Files (x86)
+| 02-03-19  08:08AM       <DIR>          Users
+|_02-25-19  11:49PM       <DIR>          Windows
+| ftp-syst: 
+|_  SYST: Windows_NT
+80/tcp    open  http         Indy httpd 18.1.37.13946 (Paessler PRTG bandwidth monitor)
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+| http-title: Welcome | PRTG Network Monitor (NETMON)
+|_Requested resource was /index.htm
+|_http-favicon: Unknown favicon MD5: 36B3EF286FA4BEFBB797A0966B456479
+|_http-server-header: PRTG/18.1.37.13946
+|_http-trane-info: Problem with XML parsing of /evox/about
+135/tcp   open  msrpc        Microsoft Windows RPC
+139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds Microsoft Windows Server 2008 R2 - 2012 microsoft-ds
+5985/tcp  open  http         Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+47001/tcp open  http         Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| p2p-conficker: 
+|   Checking for Conficker.C or higher...
+|   Check 1 (port 33374/tcp): CLEAN (Couldn't connect)
+|   Check 2 (port 45954/tcp): CLEAN (Couldn't connect)
+|   Check 3 (port 15668/udp): CLEAN (Timeout)
+|   Check 4 (port 40773/udp): CLEAN (Failed to receive data)
+|_  0/4 checks are positive: Host is CLEAN or ports are blocked
+| smb2-time: 
+|   date: 2023-08-20T09:00:51
+|_  start_date: 2023-08-20T08:52:55
+|_clock-skew: mean: 0s, deviation: 0s, median: 0s
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required
+| smb-security-mode: 
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun Aug 20 10:00:58 2023 -- 1 IP address (1 host up) scanned in 20.11 seconds

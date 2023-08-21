@@ -1,0 +1,22 @@
+# Nmap 7.94 scan initiated Sun Aug 20 09:57:29 2023 as: nmap -p- -sS -vv -oN netmon.nmap 10.10.10.152
+Nmap scan report for netmon.htb (10.10.10.152)
+Host is up, received echo-reply ttl 127 (0.053s latency).
+Scanned at 2023-08-20 09:57:29 IST for 37s
+Not shown: 65522 closed tcp ports (reset)
+PORT      STATE SERVICE      REASON
+21/tcp    open  ftp          syn-ack ttl 127
+80/tcp    open  http         syn-ack ttl 127
+135/tcp   open  msrpc        syn-ack ttl 127
+139/tcp   open  netbios-ssn  syn-ack ttl 127
+445/tcp   open  microsoft-ds syn-ack ttl 127
+5985/tcp  open  wsman        syn-ack ttl 127
+47001/tcp open  winrm        syn-ack ttl 127
+49664/tcp open  unknown      syn-ack ttl 127
+49665/tcp open  unknown      syn-ack ttl 127
+49666/tcp open  unknown      syn-ack ttl 127
+49667/tcp open  unknown      syn-ack ttl 127
+49668/tcp open  unknown      syn-ack ttl 127
+49669/tcp open  unknown      syn-ack ttl 127
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Sun Aug 20 09:58:06 2023 -- 1 IP address (1 host up) scanned in 37.05 seconds
