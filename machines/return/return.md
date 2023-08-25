@@ -19,10 +19,13 @@
 ### Exploitation
 
 Web server on port 80 hosts printer config, allowing credential recovery for svc-printer account through 
-settings tab by listeneing on port 389 and updating the Server address to our IP
+settings tab by listening on port 389 and updating the Server address to our IP
 
-svc-printer:1edFg43012!!
+Gain a remote shell with `evil-winrm -i 10.10.11.108 -u svc-printer -p password`
 
+Enumerate the user
+
+`whoami /priv`
 `net user svc-printer`
 
 The svc-printer user is a member of [Server Operators](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#server-operators) a default Group that can start and stop services
