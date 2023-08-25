@@ -1,0 +1,61 @@
+# Nmap 7.94 scan initiated Thu Aug 24 09:24:22 2023 as: nmap -p- -sCV -vv -oN return.nmap 10.10.11.108
+Nmap scan report for 10.10.11.108
+Host is up, received echo-reply ttl 127 (0.034s latency).
+Scanned at 2023-08-24 09:24:22 IST for 92s
+Not shown: 65510 closed tcp ports (reset)
+PORT      STATE SERVICE       REASON          VERSION
+53/tcp    open  domain        syn-ack ttl 127 Simple DNS Plus
+80/tcp    open  http          syn-ack ttl 127 Microsoft IIS httpd 10.0
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: HTB Printer Admin Panel
+| http-methods: 
+|   Supported Methods: OPTIONS TRACE GET HEAD POST
+|_  Potentially risky methods: TRACE
+88/tcp    open  kerberos-sec  syn-ack ttl 127 Microsoft Windows Kerberos (server time: 2023-08-24 08:43:25Z)
+135/tcp   open  msrpc         syn-ack ttl 127 Microsoft Windows RPC
+139/tcp   open  netbios-ssn   syn-ack ttl 127 Microsoft Windows netbios-ssn
+389/tcp   open  ldap          syn-ack ttl 127 Microsoft Windows Active Directory LDAP (Domain: return.local0., Site: Default-First-Site-Name)
+445/tcp   open  microsoft-ds? syn-ack ttl 127
+464/tcp   open  kpasswd5?     syn-ack ttl 127
+593/tcp   open  ncacn_http    syn-ack ttl 127 Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  tcpwrapped    syn-ack ttl 127
+3268/tcp  open  ldap          syn-ack ttl 127 Microsoft Windows Active Directory LDAP (Domain: return.local0., Site: Default-First-Site-Name)
+3269/tcp  open  tcpwrapped    syn-ack ttl 127
+5985/tcp  open  http          syn-ack ttl 127 Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
+9389/tcp  open  mc-nmf        syn-ack ttl 127 .NET Message Framing
+47001/tcp open  http          syn-ack ttl 127 Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
+49664/tcp open  msrpc         syn-ack ttl 127 Microsoft Windows RPC
+49665/tcp open  msrpc         syn-ack ttl 127 Microsoft Windows RPC
+49666/tcp open  msrpc         syn-ack ttl 127 Microsoft Windows RPC
+49667/tcp open  msrpc         syn-ack ttl 127 Microsoft Windows RPC
+49671/tcp open  msrpc         syn-ack ttl 127 Microsoft Windows RPC
+49674/tcp open  ncacn_http    syn-ack ttl 127 Microsoft Windows RPC over HTTP 1.0
+49675/tcp open  msrpc         syn-ack ttl 127 Microsoft Windows RPC
+49679/tcp open  msrpc         syn-ack ttl 127 Microsoft Windows RPC
+49682/tcp open  msrpc         syn-ack ttl 127 Microsoft Windows RPC
+49694/tcp open  msrpc         syn-ack ttl 127 Microsoft Windows RPC
+Service Info: Host: PRINTER; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| p2p-conficker: 
+|   Checking for Conficker.C or higher...
+|   Check 1 (port 31931/tcp): CLEAN (Couldn't connect)
+|   Check 2 (port 56718/tcp): CLEAN (Couldn't connect)
+|   Check 3 (port 26260/udp): CLEAN (Timeout)
+|   Check 4 (port 47117/udp): CLEAN (Failed to receive data)
+|_  0/4 checks are positive: Host is CLEAN or ports are blocked
+| smb2-time: 
+|   date: 2023-08-24T08:44:23
+|_  start_date: N/A
+|_clock-skew: 18m34s
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled and required
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Aug 24 09:25:54 2023 -- 1 IP address (1 host up) scanned in 91.93 seconds
