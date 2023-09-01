@@ -1,0 +1,16 @@
+# Nmap 7.94 scan initiated Fri Sep  1 10:33:11 2023 as: nmap -p- -A -oN bashed.nmap 10.10.10.68
+Nmap scan report for 10.10.10.68
+Host is up (0.035s latency).
+Scanned at 2023-09-01 10:33:11 IST for 14s
+Not shown: 65534 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-favicon: Unknown favicon MD5: 6AA5034A553DFA77C3B2C7B4C26CF870
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Arrexel's Development Site
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Sep  1 10:33:25 2023 -- 1 IP address (1 host up) scanned in 14.35 seconds
