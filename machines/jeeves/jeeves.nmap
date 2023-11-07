@@ -1,0 +1,43 @@
+# Nmap 7.94 scan initiated Tue Nov  7 12:12:49 2023 as: nmap -sS -sC -sV -Pn -p- -oN jeeves.nmap -vv 10.10.10.63
+Nmap scan report for 10.10.10.63
+Host is up, received user-set (0.018s latency).
+Scanned at 2023-11-07 12:12:50 GMT for 150s
+Not shown: 65531 filtered tcp ports (no-response)
+PORT      STATE SERVICE      REASON          VERSION
+80/tcp    open  http         syn-ack ttl 127 Microsoft IIS httpd 10.0
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: Ask Jeeves
+| http-methods: 
+|   Supported Methods: OPTIONS TRACE GET HEAD POST
+|_  Potentially risky methods: TRACE
+135/tcp   open  msrpc        syn-ack ttl 127 Microsoft Windows RPC
+445/tcp   open  microsoft-ds syn-ack ttl 127 Microsoft Windows 7 - 10 microsoft-ds (workgroup: WORKGROUP)
+50000/tcp open  http         syn-ack ttl 127 Jetty 9.4.z-SNAPSHOT
+|_http-server-header: Jetty(9.4.z-SNAPSHOT)
+|_http-title: Error 404 Not Found
+Service Info: Host: JEEVES; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2023-11-07T17:14:45
+|_  start_date: 2023-11-07T17:10:52
+| p2p-conficker: 
+|   Checking for Conficker.C or higher...
+|   Check 1 (port 55172/tcp): CLEAN (Timeout)
+|   Check 2 (port 29974/tcp): CLEAN (Timeout)
+|   Check 3 (port 48293/udp): CLEAN (Timeout)
+|   Check 4 (port 63729/udp): CLEAN (Timeout)
+|_  0/4 checks are positive: Host is CLEAN or ports are blocked
+|_clock-skew: mean: 5h00m00s, deviation: 0s, median: 4h59m59s
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Nov  7 12:15:20 2023 -- 1 IP address (1 host up) scanned in 150.88 seconds
