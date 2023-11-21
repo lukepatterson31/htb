@@ -31,6 +31,8 @@ local exploit suggester to see the target is vulnerable to multiple privilege es
 ### Privilege Escalation
 
 Run windows/local/ms10_092_schelevator to gain a reverse shell as NT Authority\System
+Also vulnerable to MS10-059 (Chimmichurri)
 
 **To Do**
 - add pictures of discovery
+- non-Metasploit privesc
