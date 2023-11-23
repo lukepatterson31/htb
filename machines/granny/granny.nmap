@@ -1,0 +1,23 @@
+# Nmap 7.94SVN scan initiated Wed Nov 22 08:47:40 2023 as: nmap -sS -sC -sV -Pn -p- -oN granny.nmap -vv 10.10.10.15
+Nmap scan report for 10.10.10.15
+Host is up, received user-set (0.018s latency).
+Scanned at 2023-11-22 08:47:40 GMT for 118s
+Not shown: 65534 filtered tcp ports (no-response)
+PORT   STATE SERVICE REASON          VERSION
+80/tcp open  http    syn-ack ttl 127 Microsoft IIS httpd 6.0
+| http-webdav-scan: 
+|   WebDAV type: Unknown
+|   Allowed Methods: OPTIONS, TRACE, GET, HEAD, DELETE, COPY, MOVE, PROPFIND, PROPPATCH, SEARCH, MKCOL, LOCK, UNLOCK
+|   Server Type: Microsoft-IIS/6.0
+|   Public Options: OPTIONS, TRACE, GET, HEAD, DELETE, PUT, POST, COPY, MOVE, MKCOL, PROPFIND, PROPPATCH, LOCK, UNLOCK, SEARCH
+|_  Server Date: Wed, 22 Nov 2023 08:49:33 GMT
+| http-methods: 
+|   Supported Methods: OPTIONS TRACE GET HEAD DELETE COPY MOVE PROPFIND PROPPATCH SEARCH MKCOL LOCK UNLOCK PUT POST
+|_  Potentially risky methods: TRACE DELETE COPY MOVE PROPFIND PROPPATCH SEARCH MKCOL LOCK UNLOCK PUT
+|_http-title: Under Construction
+|_http-server-header: Microsoft-IIS/6.0
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Nov 22 08:49:38 2023 -- 1 IP address (1 host up) scanned in 117.70 seconds

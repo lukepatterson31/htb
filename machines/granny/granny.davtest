@@ -1,0 +1,46 @@
+********************************************************
+ Testing DAV connection
+OPEN		SUCCEED:		http://10.10.10.15
+********************************************************
+NOTE	Random string for this session: NVof1zKm3R
+********************************************************
+ Creating directory
+MKCOL		SUCCEED:		Created http://10.10.10.15/DavTestDir_NVof1zKm3R
+********************************************************
+ Sending test files
+PUT	php	SUCCEED:	http://10.10.10.15/DavTestDir_NVof1zKm3R/davtest_NVof1zKm3R.php
+PUT	aspx	FAIL
+PUT	asp	FAIL
+PUT	pl	SUCCEED:	http://10.10.10.15/DavTestDir_NVof1zKm3R/davtest_NVof1zKm3R.pl
+PUT	cfm	SUCCEED:	http://10.10.10.15/DavTestDir_NVof1zKm3R/davtest_NVof1zKm3R.cfm
+PUT	html	SUCCEED:	http://10.10.10.15/DavTestDir_NVof1zKm3R/davtest_NVof1zKm3R.html
+PUT	txt	SUCCEED:	http://10.10.10.15/DavTestDir_NVof1zKm3R/davtest_NVof1zKm3R.txt
+PUT	jhtml	SUCCEED:	http://10.10.10.15/DavTestDir_NVof1zKm3R/davtest_NVof1zKm3R.jhtml
+PUT	shtml	FAIL
+PUT	cgi	FAIL
+PUT	jsp	SUCCEED:	http://10.10.10.15/DavTestDir_NVof1zKm3R/davtest_NVof1zKm3R.jsp
+********************************************************
+ Checking for test file execution
+EXEC	php	FAIL
+EXEC	pl	FAIL
+EXEC	cfm	FAIL
+EXEC	html	SUCCEED:	http://10.10.10.15/DavTestDir_NVof1zKm3R/davtest_NVof1zKm3R.html
+EXEC	html	FAIL
+EXEC	txt	SUCCEED:	http://10.10.10.15/DavTestDir_NVof1zKm3R/davtest_NVof1zKm3R.txt
+EXEC	txt	FAIL
+EXEC	jhtml	FAIL
+EXEC	jsp	FAIL
+
+********************************************************
+/usr/bin/davtest Summary:
+Created: http://10.10.10.15/DavTestDir_NVof1zKm3R
+PUT File: http://10.10.10.15/DavTestDir_NVof1zKm3R/davtest_NVof1zKm3R.php
+PUT File: http://10.10.10.15/DavTestDir_NVof1zKm3R/davtest_NVof1zKm3R.pl
+PUT File: http://10.10.10.15/DavTestDir_NVof1zKm3R/davtest_NVof1zKm3R.cfm
+PUT File: http://10.10.10.15/DavTestDir_NVof1zKm3R/davtest_NVof1zKm3R.html
+PUT File: http://10.10.10.15/DavTestDir_NVof1zKm3R/davtest_NVof1zKm3R.txt
+PUT File: http://10.10.10.15/DavTestDir_NVof1zKm3R/davtest_NVof1zKm3R.jhtml
+PUT File: http://10.10.10.15/DavTestDir_NVof1zKm3R/davtest_NVof1zKm3R.jsp
+Executes: http://10.10.10.15/DavTestDir_NVof1zKm3R/davtest_NVof1zKm3R.html
+Executes: http://10.10.10.15/DavTestDir_NVof1zKm3R/davtest_NVof1zKm3R.txt
+

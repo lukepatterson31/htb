@@ -1,0 +1,60 @@
+ffuf -u http://10.10.10.15/FUZZ -w /usr/share/wordlists/dirb/common.txt 
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v2.1.0-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://10.10.10.15/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/wordlists/dirb/common.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200-299,301,302,307,401,403,405,500
+________________________________________________
+
+                        [Status: 200, Size: 1433, Words: 131, Lines: 40, Duration: 77ms]
+_private                [Status: 301, Size: 153, Words: 9, Lines: 2, Duration: 193ms]
+_vti_log                [Status: 301, Size: 155, Words: 9, Lines: 2, Duration: 206ms]
+_vti_bin                [Status: 301, Size: 155, Words: 9, Lines: 2, Duration: 251ms]
+_vti_bin/_vti_adm/admin.dll [Status: 200, Size: 195, Words: 5, Lines: 13, Duration: 290ms]
+_vti_bin/_vti_aut/author.dll [Status: 200, Size: 195, Words: 5, Lines: 13, Duration: 289ms]
+_vti_bin/shtml.dll      [Status: 200, Size: 96, Words: 11, Lines: 1, Duration: 291ms]
+aspnet_client           [Status: 301, Size: 158, Words: 9, Lines: 2, Duration: 176ms]
+images                  [Status: 301, Size: 149, Words: 9, Lines: 2, Duration: 146ms]
+Images                  [Status: 301, Size: 149, Words: 9, Lines: 2, Duration: 145ms]
+
+ffuf -u http://10.10.10.15/FUZZ -w /usr/share/wordlists/seclists/Discovery/Web-Content/quickhits.txt
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v2.1.0-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://10.10.10.15/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/wordlists/seclists/Discovery/Web-Content/quickhits.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200-299,301,302,307,401,403,405,500
+________________________________________________
+
+_private                [Status: 301, Size: 153, Words: 9, Lines: 2, Duration: 18ms]
+_vti_pvt/service.cnf    [Status: 500, Size: 88, Words: 4, Lines: 2, Duration: 17ms]
+_vti_inf.html           [Status: 200, Size: 1754, Words: 198, Lines: 45, Duration: 20ms]
+Trace.axd               [Status: 403, Size: 2062, Words: 453, Lines: 50, Duration: 1151ms]
+:: Progress: [2565/2565] :: Job [1/1] :: 189 req/sec :: Duration: [0:00:02] :: Errors: 0 ::
