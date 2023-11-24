@@ -76,6 +76,8 @@ exploit to get an Administrator shell
 
 - XAmpp uses php + mysql
 
+- Map SMB shares for easier copying of files to the target `net use \\10.10.10.10\share /u:user pass`
+
 - Find local listening network connections with `netstat -ano | findstr TCP | findstr ":0"` the last column 
 is the PID
 
