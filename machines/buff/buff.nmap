@@ -1,0 +1,17 @@
+# Nmap 7.94SVN scan initiated Fri Nov 24 09:00:04 2023 as: nmap -sS -sC -sV -Pn -p- -oN buff.nmap -vv 10.10.10.198
+Nmap scan report for 10.10.10.198
+Host is up, received user-set (0.017s latency).
+Scanned at 2023-11-24 09:00:04 GMT for 253s
+Not shown: 65533 filtered tcp ports (no-response)
+PORT     STATE SERVICE    REASON          VERSION
+7680/tcp open  pando-pub? syn-ack ttl 127
+8080/tcp open  http       syn-ack ttl 127 Apache httpd 2.4.43 ((Win64) OpenSSL/1.1.1g PHP/7.4.6)
+|_http-open-proxy: Proxy might be redirecting requests
+|_http-title: mrb3n's Bro Hut
+|_http-server-header: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.6
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Nov 24 09:04:17 2023 -- 1 IP address (1 host up) scanned in 253.66 seconds
