@@ -84,3 +84,11 @@ Upload it to the target, start a listener, and use msiexec to run the malicious 
 `msiexec /quiet /qn /i shell.msi`
 
 This gives us a System shell
+
+### Lessons Learned
+
+- Check SSL certificates for domains/subdomains
+
+- If you can't access an exposed HTTP server look for SSRF vulnerabilities
+
+- Check any calls HTTP server's make for SSRF
