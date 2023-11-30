@@ -45,8 +45,6 @@ Directory traversal on port 80 exposing the Passwords.txt file mentioned in the 
 None of the passwords work for the log in panels but one works for Nadine's ssh password, giving us user 
 access
 
-NSCLient password `ew2x6SsGTxjRwXOT`
-
 ![SSH](./pictures/ssh.png)
 
 ### Exploitation
