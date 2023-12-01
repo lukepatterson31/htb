@@ -1,0 +1,61 @@
+# Nmap 7.94SVN scan initiated Thu Nov 30 10:42:18 2023 as: nmap -sS -sC -sV -Pn -p- -oN timelapse-sc.nmap -vv 10.10.11.152
+Increasing send delay for 10.10.11.152 from 0 to 5 due to 31 out of 103 dropped probes since last increase.
+Nmap scan report for 10.10.11.152
+Host is up, received user-set (0.077s latency).
+Scanned at 2023-11-30 10:42:18 GMT for 2067s
+Not shown: 65522 filtered tcp ports (no-response)
+PORT      STATE SERVICE           REASON          VERSION
+88/tcp    open  kerberos-sec      syn-ack ttl 127 Microsoft Windows Kerberos (server time: 2023-11-30 19:15:45Z)
+389/tcp   open  ldap              syn-ack ttl 127 Microsoft Windows Active Directory LDAP (Domain: timelapse.htb0., Site: Default-First-Site-Name)
+464/tcp   open  kpasswd5?         syn-ack ttl 127
+636/tcp   open  ldapssl?          syn-ack ttl 127
+3268/tcp  open  ldap              syn-ack ttl 127 Microsoft Windows Active Directory LDAP (Domain: timelapse.htb0., Site: Default-First-Site-Name)
+3269/tcp  open  globalcatLDAPssl? syn-ack ttl 127
+5986/tcp  open  ssl/http          syn-ack ttl 127 Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_ssl-date: 2023-11-30T19:16:43+00:00; +7h59m59s from scanner time.
+| ssl-cert: Subject: commonName=dc01.timelapse.htb
+| Issuer: commonName=dc01.timelapse.htb
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2021-10-25T14:05:29
+| Not valid after:  2022-10-25T14:25:29
+| MD5:   e233:a199:4504:0859:013f:b9c5:e4f6:91c3
+| SHA-1: 5861:acf7:76b8:703f:d01e:e25d:fc7c:9952:a447:7652
+| -----BEGIN CERTIFICATE-----
+| MIIDCjCCAfKgAwIBAgIQLRY/feXALoZCPZtUeyiC4DANBgkqhkiG9w0BAQsFADAd
+| MRswGQYDVQQDDBJkYzAxLnRpbWVsYXBzZS5odGIwHhcNMjExMDI1MTQwNTI5WhcN
+| MjIxMDI1MTQyNTI5WjAdMRswGQYDVQQDDBJkYzAxLnRpbWVsYXBzZS5odGIwggEi
+| MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDJdoIQMYt47skzf17SI7M8jubO
+| rD6sHg8yZw0YXKumOd5zofcSBPHfC1d/jtcHjGSsc5dQQ66qnlwdlOvifNW/KcaX
+| LqNmzjhwL49UGUw0MAMPAyi1hcYP6LG0dkU84zNuoNMprMpzya3+aU1u7YpQ6Dui
+| AzNKPa+6zJzPSMkg/TlUuSN4LjnSgIV6xKBc1qhVYDEyTUsHZUgkIYtN0+zvwpU5
+| isiwyp9M4RYZbxe0xecW39hfTvec++94VYkH4uO+ITtpmZ5OVvWOCpqagznTSXTg
+| FFuSYQTSjqYDwxPXHTK+/GAlq3uUWQYGdNeVMEZt+8EIEmyL4i4ToPkqjPF1AgMB
+| AAGjRjBEMA4GA1UdDwEB/wQEAwIFoDATBgNVHSUEDDAKBggrBgEFBQcDATAdBgNV
+| HQ4EFgQUZ6PTTN1pEmDFD6YXfQ1tfTnXde0wDQYJKoZIhvcNAQELBQADggEBAL2Y
+| /57FBUBLqUKZKp+P0vtbUAD0+J7bg4m/1tAHcN6Cf89KwRSkRLdq++RWaQk9CKIU
+| 4g3M3stTWCnMf1CgXax+WeuTpzGmITLeVA6L8I2FaIgNdFVQGIG1nAn1UpYueR/H
+| NTIVjMPA93XR1JLsW601WV6eUI/q7t6e52sAADECjsnG1p37NjNbmTwHabrUVjBK
+| 6Luol+v2QtqP6nY4DRH+XSk6xDaxjfwd5qN7DvSpdoz09+2ffrFuQkxxs6Pp8bQE
+| 5GJ+aSfE+xua2vpYyyGxO0Or1J2YA1CXMijise2tp+m9JBQ1wJ2suUS2wGv1Tvyh
+| lrrndm32+d0YeP/wb8E=
+|_-----END CERTIFICATE-----
+|_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
+| tls-alpn: 
+|_  http/1.1
+9389/tcp  open  mc-nmf            syn-ack ttl 127 .NET Message Framing
+49667/tcp open  msrpc             syn-ack ttl 127 Microsoft Windows RPC
+49673/tcp open  ncacn_http        syn-ack ttl 127 Microsoft Windows RPC over HTTP 1.0
+49674/tcp open  msrpc             syn-ack ttl 127 Microsoft Windows RPC
+49692/tcp open  msrpc             syn-ack ttl 127 Microsoft Windows RPC
+49700/tcp open  msrpc             syn-ack ttl 127 Microsoft Windows RPC
+Service Info: Host: DC01; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: 7h59m58s
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Nov 30 11:16:45 2023 -- 1 IP address (1 host up) scanned in 2066.47 seconds
