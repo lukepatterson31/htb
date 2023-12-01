@@ -73,4 +73,7 @@ exit
 
 - Evil-WinRM can be used with pem files
 
+- Don't forget to check PowerShell history  
+`C:\Users\User\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt`
+
 - Read LAPS Administrator passwords with `Get-ADComputer <PC name> -Property 'ms-mcs-admpwd'`
