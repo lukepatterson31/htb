@@ -42,6 +42,8 @@ Check services with evil-winrm
 
 ![Services](./pictures/services.png)
 
+### Privilege Escalation
+
 Manual enumeration leads us to the PowerShell history for legacyy
 
 `C:\Users\legacyy\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt`
