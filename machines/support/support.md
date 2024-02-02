@@ -103,9 +103,17 @@ Bloodhound
 
 Upload the SharpHound.exe or .ps1 version corresponding to our Bloodhound version and run it on the target
 
-Bloodhound shows that the Shared Support Accounts Group has GenericAll permissions over the DC
+We then download the .zip output from SharpHound, start `neo4j` (`sudo neo4j start`), run `bloodhound`, and 
+import the .zip into bloodhound
+
+Looking at our current user `support@support.htb`, we see that they have Group Delegated Object Control 
+(a group the user is a member of has control over an object) over the Domain Controller
+
+The Shared Support Accounts Group has GenericAll permissions over the Domain Controller, aka full control
 
 ![Bloodhound](./pictures/bloodhound.png)
+![Full Control](./pictures/full-control.png)
+![RBCD](./pictures/rbcd-attack.png)
 
 This means we can perform a Resource Based Constrained Delegation Attack to gain Admin privileges if three 
 conditions are met
@@ -114,11 +122,23 @@ conditions are met
 2. The `ms-ds-machineaccountquota` attribute to be > 0  
 3. The Domain user that we have code execution with needs write privileges over a domain joined machine
 
-We can check our current user is part of the Authenticated Users group with `whoami /groups` or with 
-Bloodhound
+We can check our current user is part of the Authenticated Users group with `whoami /groups` or Bloodhound
 
 ![Authenticated Users whoami](./pictures/authenticated-users.png)
 ![Authenticated Users Bloodhound](./pictures/authenticated-users-bloodhound.png)
+
+Next is the `ms-ds-machineaccountquota` attribute, which we can query with `Get-ADObject`
+
+We need to know the DistinguishedName of the Domain for `Get-ADObject`'s `-Identity` parameter, we can find 
+that with `Get-ADDomain`
+
+`Get-ADObject -Identity "DC=support,DC=htb" -Properties ms-ds-machineaccountquota`
+
+![ms-ds-machineaccountquota](./pictures/msdsmachineaccountquota.png)
+
+We already determined we satisfy number 3 in our inital enumeration so we can start performing the attack
+
+First we need to add a new machine account to the target with [Powermad](https://github.com/Kevin-Robertson/Powermad/tree/master)
 
 ### Lessons Learned
 
