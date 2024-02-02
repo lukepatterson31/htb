@@ -9,7 +9,7 @@
 - port 445/tcp SMB
 - port 464/tcp kpasswd5?
 - port 593/tcp Microsoft Windows RPC over HTTP 1.0                                   
-- port 3268/tcp LDAP
+- port 3268/tcp LDAP (Domain: support.htb)
 - port 3269/tcp LDAPS
 - port 5985/tcp WinRM
 - port 9389/tcp mc-nmf .NET Message Framing   
@@ -18,13 +18,15 @@
 - port 49676/tcp ncacn_http Microsoft Windows RPC over HTTP 1.0
 - port 49679/tcp msrpc
 
+The namp scan of the LDAP port shows us the domain name of the target: support.htb
+
 **SMB**
 
-We can list SMB shares on the target with `smbclient -L \\\\10.10.11.174`
+We can list SMB shares on the target with `smbclient -L \\\\support.htb`
 
 ![Shares](./pictures/smb-shares.png)
 
-We can connect to the share and list the contents with `smbclient \\\\10.10.11.174\\support-tools`
+We can connect to the share and list the contents with `smbclient \\\\support.htb\\support-tools`
 
 ![Tools](./pictures/tools.png)
 
@@ -55,6 +57,7 @@ The Protected Class contains a method getPassword that decrypts the cipher text 
 We can extract this code and create a .Net console application or use python to decrypt the password
 
 ```
+#!/usr/bin/env python3
 import base64
 
 enc_password = base64.b64decode("0Nv32PTwgYjzg9/8j5TbmvPd3e7WhtWWyuPsyO76/Y+U193E")
@@ -71,10 +74,11 @@ for i in range(0, len(enc_password)):
 print(password)
 ```
 
-Now that we have the username and password we can use ldapsearch to query the server and enumerate the users 
-and groups on the target
+Now that we have the username and password we can use `ldapsearch` or `ldapdomaindump` to query the server 
+and enumerate the users and groups on the target
 
 `ldapsearch -H ldap://support.htb:3268 -D ldap@support.htb -w 'password' -b "cn=Users,dc=support,dc=htb"`
+`ldapdomaindump -u support\\ldap -p 'password' ldap://support.htb:3268 -o ldap -at SIMPLE`
 
 ### Exploitation
 
@@ -92,16 +96,38 @@ Using `evil-winrm` we get a shell on the target
 
 ### Privilege Escalation
 
+Now that we have user credentials for the target we can enumerate the target
+
+Based on the services we found during our scanning the target is an AD machine, so we can enumerate it with 
+Bloodhound
+
+Upload the SharpHound.exe or .ps1 version corresponding to our Bloodhound version and run it on the target
+
 Bloodhound shows that the Shared Support Accounts Group has GenericAll permissions over the DC
 
 ![Bloodhound](./pictures/bloodhound.png)
 
-This means we can perform a Resource Based Constrained Delegation Attack to gain Admin privileges if certain 
+This means we can perform a Resource Based Constrained Delegation Attack to gain Admin privileges if three 
 conditions are met
+
+1. We need code execution as a Domain user in the `Authenticated Users` Group  
+2. The `ms-ds-machineaccountquota` attribute to be > 0  
+3. The Domain user that we have code execution with needs write privileges over a domain joined machine
+
+We can check our current user is part of the Authenticated Users group with `whoami /groups` or with 
+Bloodhound
+
+![Authenticated Users whoami](./pictures/authenticated-users.png)
+![Authenticated Users Bloodhound](./pictures/authenticated-users-bloodhound.png)
 
 ### Lessons Learned
 
 - Check file type of any uncommon PE's to see if we can decompile them  
 - DNSpy and ILSpy for decompiling .Net  
 - Specify auth type for ldapdomaindump with `-at SIMPLE/NTLM`  
-- Custom object tags aren't always visible with ldapsearch and ldapdomaindump  
+- Custom object tags aren't always visible with ldapsearch and ldapdomaindump
+- Resource Based Constrained Delegation (RBCD) attacks require:  
+    - code execution as a domain user that belongs to the Authenticated Users Group  
+    - `ms-ds-machineaccountquota` attribute to be > 0 (Use `Get-ADObject`)  
+    - current user needs `WRITE` privileges (`GenericAll/WriteDACL`) over a domain joined machine  
+
