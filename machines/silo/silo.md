@@ -2,6 +2,8 @@
 
 ### Reconnaissance
 
+[Nmap scan](./silo.nmap)
+
 **RPC**
 
 Access denied when trying to connect with a null session
