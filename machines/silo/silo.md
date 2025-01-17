@@ -114,3 +114,4 @@ can run it and discover we have SYSTEM privileges
 - When scheduling tasks with DBMS_SCHEDULER use binaries we know will be installed on the target in 
 predictable locations
 - Sanity checking when using scheduled tasks is important as we don't get any output from the executed commands
+- If basic system tools aren't working navigate to their expected path and try again
