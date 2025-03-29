@@ -2,3 +2,7 @@ machines/pilgrimage/resources
 machines/cozyhosting/resources
 *.pdf
 **/.venv
+**/smb
+**/upload
+**/*_BloodHound.*
+**/*_Certipy.*
