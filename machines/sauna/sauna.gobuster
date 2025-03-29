@@ -1,0 +1,74 @@
+└─$ gobuster dir -u http://egotistical-bank.local -w /usr/share/dirb/wordlists/common.txt                     
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://egotistical-bank.local
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/dirb/wordlists/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/css                  (Status: 301) [Size: 157] [--> http://egotistical-bank.local/css/]
+/fonts                (Status: 301) [Size: 159] [--> http://egotistical-bank.local/fonts/]
+/images               (Status: 301) [Size: 160] [--> http://egotistical-bank.local/images/]
+/Images               (Status: 301) [Size: 160] [--> http://egotistical-bank.local/Images/]
+/index.html           (Status: 200) [Size: 32797]
+Progress: 4614 / 4615 (99.98%)
+===============================================================
+Finished
+===============================================================
+                                                                                                                    
+└─$ gobuster dir -u http://sauna.egotistical-bank.local -w /usr/share/dirb/wordlists/common.txt
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://sauna.egotistical-bank.local
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/dirb/wordlists/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/css                  (Status: 301) [Size: 163] [--> http://sauna.egotistical-bank.local/css/]
+/fonts                (Status: 301) [Size: 165] [--> http://sauna.egotistical-bank.local/fonts/]
+/Images               (Status: 301) [Size: 166] [--> http://sauna.egotistical-bank.local/Images/]
+/images               (Status: 301) [Size: 166] [--> http://sauna.egotistical-bank.local/images/]
+/index.html           (Status: 200) [Size: 32797]
+Progress: 4614 / 4615 (99.98%)
+===============================================================
+Finished
+===============================================================
+                                                                                                                    
+└─$ gobuster dir -u http://hostmaster.egotistical-bank.local -w /usr/share/dirb/wordlists/common.txt
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://hostmaster.egotistical-bank.local
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/dirb/wordlists/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/css                  (Status: 301) [Size: 168] [--> http://hostmaster.egotistical-bank.local/css/]
+/fonts                (Status: 301) [Size: 170] [--> http://hostmaster.egotistical-bank.local/fonts/]
+/images               (Status: 301) [Size: 171] [--> http://hostmaster.egotistical-bank.local/images/]
+/Images               (Status: 301) [Size: 171] [--> http://hostmaster.egotistical-bank.local/Images/]
+/index.html           (Status: 200) [Size: 32797]
+Progress: 4614 / 4615 (99.98%)
+===============================================================
+Finished
+===============================================================
