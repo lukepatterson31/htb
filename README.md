@@ -4,6 +4,7 @@
 
 [Notes for HTB Academy modules and paths](./academy)
 - [Penetration Tester Path](./academy/pentester-path)
+    - [Labs](./academy/pentester-path/labs)
 
 ## Machines
 
